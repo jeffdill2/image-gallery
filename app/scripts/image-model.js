@@ -1,5 +1,7 @@
 'use strict';
 
+var strPhotosURL = 'http://tiny-pizza-server.herokuapp.com/collections/jdill-photos';
+
 var ImageModel = Backbone.Model.extend({
 	idAttribute: '_id',
 
@@ -12,5 +14,5 @@ var ImageModel = Backbone.Model.extend({
 var ImageCollection = Backbone.Collection.extend({
 	model: ImageModel,
 
-	url: 'http://tiny-pizza-server.herokuapp.com/collections/photos/'
+	url: strPhotosURL
 });

@@ -1,0 +1,15 @@
+// The ThumbnailView constructor -- inheriting from Backbone.View.
+// The name of the class that will be assigned to any instance of ThumbnailView.
+// The function to pull the text from the HTML template.
+// Setting the click event on any given instance of ThumbnailView to run the showDetailView() method.
+// Setting an event on the initialization of a ThumbnailView object to append the current instance into the '.container' div. Then run the 'render' method.
+// A method that will pass the current model's attributes through the 'thumbnailTemplate' function, and set the HTML content of the current object.
+// A method that will create a new DetailView object, with an argument of which model the view will be rendering.
+
+
+// The ImageModel constructor -- inheriting from Backbone.Model.
+// Telling Backbone that the id for the model will actually have to be '_id' instead of the default 'id', because of how MongoDB is configured.
+// Setting default values that will be used if 'url' and/or 'caption' are not provided when a model is instantiated.
+// The ImageCollection constructor -- inheriting from Backbone.Collection.
+// Setting the model that this collection will manage.
+// Setting the url where the specified model will receive it's data from.

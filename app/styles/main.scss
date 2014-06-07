@@ -1,31 +1,145 @@
+@import 'variables';
+
+////////////////////////////////////////////////////////////
+///////////////////////////////////////// YO WEBAPP DEFAULTS
+////////////////////////////////////////////////////////////
+
 // bower:scss
 // endbower
-
-body {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
-}
-
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
-    h1 {
-        font-size: 60px;
-        line-height: 1;
-        letter-spacing: -1px;
-    }
-}
 
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+}
+
+////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////// TAGS
+////////////////////////////////////////////////////////////
+body {
+    background: $colorMidnightGray;
+}
+
+////////////////////////////////////////////////////////////
+///////////////////////////////////////////////// CONTAINERS
+////////////////////////////////////////////////////////////
+.container {
+    max-width: 1300px;
+    min-width: 800px;
+    max-height: 1200px;
+    min-height: 750px;
+    margin: 0 auto;
+    border: 5px solid $colorBurntOrange;
+    border-radius: 8px;
+    background-color: $colorFogGray;
+    margin-top: 20px;
+    position: relative;
+}
+
+.header {
+    font-family: Helvetica, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: bolder;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    height: 60px;
+    background-color: $colorBurntOrange;
+    color: $colorWhite;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.image-form {
+    width: 50%;
+    top: 59px;
+    bottom: 0px;
+    left: 0px;
+    border-right: 5px solid $colorBurntOrange;
+    position: absolute;
+    overflow: auto;
+    padding-bottom: 30px;
+}
+
+.image-gallery {
+    width: 50%;
+    top: 59px;
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
+    overflow-x: auto;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.image-thumbnail {
+    width: 29%;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: inline-block;
+    float: left;
+}
+
+.image-detail {
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 90%;
+}
+
+////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////// FORM
+////////////////////////////////////////////////////////////
+.form-url {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bolder;
+    margin-left: 3.5%;
+    margin-top: 30px;
+    padding: 5px;
+    width: 90%;
+}
+
+.form-caption {
+    @extend .form-url;
+}
+
+.submit-button {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    background-color: $colorLightGray;
+    border-radius: 8px;
+    border: 2px solid $colorStoneGray;
+    line-height: 50px;
+    text-align: center;
+    color: $colorMidnightGray;
+    text-shadow: -1px -1px 1px $colorWhite;
+    margin-top: 15px;
+    margin-right: 4%;
+    float: right;
+    width: 140px;
+    height: 50px;
+    box-shadow: inset   1px -2px 1px $colorLightGray,
+                        3px 3px  3px $colorStoneGray;
+
+    &:hover {
+        box-shadow: inset   2px -2px 2px $colorLightGray,
+                            2px 2px  2px $colorMidnightGray;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+
+    &:active {
+        margin-top: 16px;
+        margin-bottom: -16px;
+        box-shadow: inset   2px -2px 2px $colorLightGray,
+                            1px 1px  1px $colorMidnightGray;
+    }
 }
