@@ -5,14 +5,16 @@ var DetailView = Backbone.View.extend({
 
 	detailTemplate: _.template($('.detail-template').text()),
 
-	// events: {
-	// 	"click .submit-button" : "updateModel"
-	// },
+	events: {
+		"click .submit-button" 	: "submit",
+		"click .preview-button"	: "preview",
+		"click .update-button"	: "update",
+		"click .delete-button"	: "destroy"
+	},
 
 	initialize: function() {
-		$('.submit-button').text('Save');
 		$('.image-form').html('');
-		$('.image-gallery').append(this.el);
+		$('.image-form').append(this.el);
 		this.render();
 	},
 
@@ -22,24 +24,39 @@ var DetailView = Backbone.View.extend({
 	},
 
 	reset: function() {
-		$('.form-image').attr('src', '../images/placeholder-image.png');
-		$('.form-url').val('');
-		$('.form-caption').val('');
-		$('.submit-button').text('Submit');
-	}//,
+		new DetailView({model: {attributes: {url: '../images/placeholder-image.png', caption: 'placeholder'}}});
+	},
 
-	// updateModel: function() {
-	// 	console.log(this.model);
-	// 	console.log("url:", this.$el.find('.form-url').val());
-	// 	console.log("caption:", this.$el.find('.form-caption').val());
+	submit: function() {
+		var objImage = new Image($('.form-url').val(), $('.form-caption').val());
+		var objThumbnailModel = imageCollection.add(objImage);
 
-	// 	this.model.set({
-	// 		url: 		this.$el.find('.form-url').val(),
-	// 		caption: 	this.$el.find('.form-caption').val()
-	// 	}).save().done(function() {
-	// 		this.$el.find('.status').html('Saved!');
-	// 	});
+		objThumbnailModel.save();
+		new ThumbnailView({model: objThumbnailModel});
 
-	// 	this.reset();
-	// }
+		this.remove();
+		this.reset();
+	},
+
+	preview: function() {
+
+	},
+
+	update: function() {
+		this.model.set({
+			url: 		this.$el.find('.form-url').val(),
+			caption: 	this.$el.find('.form-caption').val()
+		}).save().done(function() {
+			this.$el.find('.status').html('Saved!');
+		});
+
+		this.remove();
+		this.reset();
+	},
+
+	destroy: function() {
+		this.model.destroy();
+		this.remove();
+		this.reset();
+	}
 });

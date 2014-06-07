@@ -40,40 +40,12 @@ function loadImages() {
 			new ThumbnailView({model: image});
 		});
 
-		// new DetailView({model: imageCollection.first()});
+		new DetailView({model: {attributes: {url: '../images/placeholder-image.png', caption: 'placeholder'}}});
 	});
 }
-
-$('.submit-button').click(function() {
-	var strURL = $('.form-url').val();
-	var strCaption = $('.form-caption').val();
-	var objImage = new Image(strURL, strCaption);
-	var objThumbnailModel = imageCollection.add(objImage);
-
-	objThumbnailModel.save();
-	new ThumbnailView({model: objThumbnailModel});
-
-	$('.form-url').focus();
-});
 
 $('.form-url').change(function() {
 	var strURL = $('.form-url').val();
 
 	$('.form-image').attr('src', strURL);
-});
-
-$('.form-url').keypress(function(key) {
-	if (key.keyCode == '13') {
-		key.preventDefault();
-
-		$('.submit-button').trigger('click');
-	}
-});
-
-$('.form-caption').keypress(function(key) {
-	if (key.keyCode == '13') {
-		key.preventDefault();
-
-		$('.submit-button').trigger('click');
-	}
 });

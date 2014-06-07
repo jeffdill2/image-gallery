@@ -26,14 +26,7 @@
         <div class="container">
             <div class="header">Image Gallery</div>
 
-            <div class="image-form">
-                <form>
-                    <input type="text" class="form-url" placeholder="Image URL..." value="<%= url === '../images/placeholder-image.png' ? '' : url %>"></input>
-                    <input type="text" class="form-caption" placeholder="Image Caption..." value="<%= caption %>"></input>
-                </form>
-
-                <div class="submit-button">Submit</div>
-            </div>
+            <div class="image-form"></div>
 
             <div class="image-gallery"></div>
         </div>
@@ -45,15 +38,20 @@
         <script type="text/template" class="detail-template">
             <img src="<%= url %>" class="image-detail form-image">
 
-            <!--
-            // <form>
-            //     <input type="text" class="form-url" placeholder="Image URL..." value="<%= url === '../images/placeholder-image.png' ? '' : url %>"></input>
-            //     <input type="text" class="form-caption" placeholder="Image Caption..." value="<%= caption %>"></input>
-            // </form>
-            -->
+            <form>
+                <input type="text" class="form-url" placeholder="Image URL..." value="<%= url === '../images/placeholder-image.png' ? '' : url %>"></input>
+                <input type="text" class="form-caption" placeholder="Image Caption..." value="<%= url === '../images/placeholder-image.png' ? '' : caption %>"></input>
+            </form>
 
-            // <div class="submit-button">Submit</div>
-            // <div class="status"></div>
+            <% if (url === '../images/placeholder-image.png') { %>
+                <div class="submit-button button">Add</div>
+                <div class="preview-button button">Preview</div>
+            <% } else { %>
+                <div class="update-button button">Update</div>
+                <div class="delete-button button">Delete</div>
+            <% } %>
+
+            <div class="status"></div>
         </script>
 
         <!--////////////////////////////////////////////////////////
