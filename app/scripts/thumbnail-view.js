@@ -10,6 +10,7 @@ var ThumbnailView = Backbone.View.extend({
 	},
 
 	initialize: function() {
+		this.listenTo(this.model, 'destroy', this.remove);
 		$('.image-gallery').prepend(this.el);
 		this.render();
 	},

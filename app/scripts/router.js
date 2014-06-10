@@ -22,6 +22,6 @@ var AppRouter = Backbone.Router.extend({
 	},
 
 	renderImage: function(imageId) {
-		// grab an image here.
+		new DetailView({model: imageCollection.get(imageId)});
 	}
 });
