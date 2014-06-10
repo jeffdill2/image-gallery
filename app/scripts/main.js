@@ -4,9 +4,8 @@
 ///////////////////////////////////// INITIALIZE APPLICATION
 ////////////////////////////////////////////////////////////
 $(document).ready(function() {
-	loadImages();
-
-	$('.form-url').focus();
+	var app = new AppRouter();
+	Backbone.history.start();
 });
 
 ////////////////////////////////////////////////////////////
@@ -30,22 +29,14 @@ function Image(strURL, strCaption) {
 }
 
 ////////////////////////////////////////////////////////////
-//////////////////////////////////////LOAD AND SUBMIT IMAGES
+////////////////////////////////////////////////// FUNCTIONS
 ////////////////////////////////////////////////////////////
-var imageCollection = new ImageCollection();
-
 function loadImages() {
 	imageCollection.fetch().done(function() {
+		imageCollection.models.reverse();
+
 		imageCollection.each(function(image) {
 			new ThumbnailView({model: image});
 		});
-
-		new DetailView({model: {attributes: {url: '../images/placeholder-image.png', caption: 'placeholder'}}});
 	});
 }
-
-$('.form-url').change(function() {
-	var strURL = $('.form-url').val();
-
-	$('.form-image').attr('src', strURL);
-});
