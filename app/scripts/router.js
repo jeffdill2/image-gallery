@@ -1,6 +1,7 @@
 'use strict';
 
 var imageCollection = new ImageCollection();
+var placeholderModel = new ImageModel({url: '../images/placeholder-image.png', caption: 'placeholder', isPlaceholder: true});
 
 var AppRouter = Backbone.Router.extend({
 	routes: {
@@ -11,14 +12,14 @@ var AppRouter = Backbone.Router.extend({
 	initialize: function() {
 		loadImages();
 
-		new DetailView({model: {attributes: {url: '../images/placeholder-image.png', caption: 'placeholder'}}});
+		new DetailView({model: placeholderModel});
 
 		$('.form-url').focus();
 
 	},
 
 	renderHome: function() {
-		new DetailView({model: {attributes: {url: '../images/placeholder-image.png', caption: 'placeholder'}}});
+		new DetailView({model: placeholderModel});
 	},
 
 	renderImage: function(imageId) {

@@ -7,7 +7,8 @@ var ImageModel = Backbone.Model.extend({
 
 	defaults: {
 		url: 'http://i.giftrunk.com/d3fqzq.gif',
-		caption: 'shaq attack!'
+		caption: 'shaq attack!',
+		isPlaceholder: false
 	},
 });
 

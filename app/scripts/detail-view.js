@@ -24,7 +24,7 @@ var DetailView = Backbone.View.extend({
 	},
 
 	reset: function() {
-		new DetailView({model: {attributes: {url: '../images/placeholder-image.png', caption: 'placeholder'}}});
+		new DetailView({model: placeholderModel});
 	},
 
 	submit: function() {

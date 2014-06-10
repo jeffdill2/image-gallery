@@ -41,11 +41,11 @@
             <img src="<%= url %>" class="image-detail form-image">
 
             <form>
-                <input type="text" class="form-url" placeholder="Image URL..." value="<%= url === '../images/placeholder-image.png' ? '' : url %>"></input>
-                <input type="text" class="form-caption" placeholder="Image Caption..." value="<%= url === '../images/placeholder-image.png' ? '' : caption %>"></input>
+                <input type="text" class="form-url" placeholder="Image URL..." value="<%= isPlaceholder ? '' : url %>"></input>
+                <input type="text" class="form-caption" placeholder="Image Caption..." value="<%= isPlaceholder ? '' : caption %>"></input>
             </form>
 
-            <% if (url === '../images/placeholder-image.png') { %>
+            <% if (isPlaceholder) { %>
                 <div class="submit-button button">Add</div>
                 <div class="preview-button button">Preview</div>
             <% } else { %>
